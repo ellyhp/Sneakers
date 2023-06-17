@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('email');
             $table->string('password');
             $table->string('estado');
-            $table->rememberToken();
+            // $table->rememberToken();
             $table->timestamps();
         });
     }

@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\UserController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -18,19 +19,34 @@ use App\Http\Controllers\ProductController;
      return view('products.index');
 });
 
+
+
 Route::get('/register', function () {
      return view('products.create');
 });
 
+Route::resource('/product', ProductController::class);
 
+//edit
 Route::get('/products/{id}/editar', [ProductController::class, 'edit'])->name('products.edit');
 Route::put('/products/{id}', [ProductController::class, 'update'])->name('products.update');
 
 
-
+//delete
 Route::delete('/products/{id}', [ProductController::class, 'destroy'])->name('products.destroy');
 
 
 
-Route::resource('/product', ProductController::class);
+//users
 
+
+
+Route::get('/users', function () {
+     return view('users.index');
+});
+
+Route::get('/create-user', function () {
+     return view('users.create');
+});
+
+Route::resource('/users', UserController::class);

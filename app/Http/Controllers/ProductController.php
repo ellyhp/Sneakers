@@ -39,7 +39,7 @@ class ProductController extends Controller
         $product->img1_prod = $request->img1_prod;
         $product->img2_prod = $request->img2_prod;
         $product->img3_prod = $request->img3_prod;
-        $product->estado = "ACTIVO";
+        $product->estado = "Activo";
         $product->talla = $request->talla;
         $product->color = $request->color;
         $product->marca = $request->marca;
@@ -93,7 +93,7 @@ class ProductController extends Controller
         $product->img1_prod = $request->img1_prod;
         $product->img2_prod = $request->img2_prod;
         $product->img3_prod = $request->img3_prod;
-        $product->estado = "ACTIVO";
+        $product->estado = $request->estado;;
         $product->talla = $request->talla;
         $product->color = $request->color;
         $product->marca = $request->marca;

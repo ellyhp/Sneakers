@@ -165,7 +165,7 @@
             <a href="{{ asset('product') }}" aria-current="page" class="logo-link w-inline-block w--current"><img
                     src="images/t-logo.svg" loading="lazy" alt="Template logo"></a>
             <div class="nav-menu">
-        <a href="{{ asset('product') }}" class="nav-menu__link w-inline-block" " style="background-color: rgba(41, 0, 128, 0.265); color:rgba(64, 0, 128, 0.647)">
+        <a href="{{ asset('product') }}" class="nav-menu__link w-inline-block">
           <div class="nav-menu__icon w-embed"><svg width="29" height="29" viewbox="0 0 29 29" fill="none" xmlns="http://www.w3.org/2000/svg">
               <g clip-path="url(#clip0_1031_25)">
                 <path d="M11.1576 1.12939H1.12939V11.1576H11.1576V1.12939Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
@@ -180,7 +180,7 @@
               </defs>
             </svg></div>
         </a>
-        <a href="{{ asset('users') }}" class="nav-menu__link w-inline-block">
+        <a href="{{ asset('users') }}" class="nav-menu__link w-inline-block" style="background-color: rgba(41, 0, 128, 0.265); color:rgba(64, 0, 128, 0.647)">
           <div class="nav-menu__icon w-embed"><svg width="29" height="28" viewbox="0 0 29 28" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M14.5 18.5669C19.1877 18.5669 22.9878 14.7668 22.9878 10.0791C22.9878 5.39143 19.1877 1.59131 14.5 1.59131C9.81233 1.59131 6.01221 5.39143 6.01221 10.0791C6.01221 14.7668 9.81233 18.5669 14.5 18.5669Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
               <path d="M1.63574 25.9939C2.93933 23.7356 4.81447 21.8602 7.07265 20.5563C9.33083 19.2524 11.8925 18.5659 14.5001 18.5659C17.1077 18.5659 19.6693 19.2524 21.9275 20.5563C24.1857 21.8602 26.0608 23.7356 27.3644 25.9939" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
@@ -236,8 +236,8 @@
         </div>
       </div>
       <div class="files-wrap">
-        <h2 class="h2 mb-20">Todos los productos</h2>
-        <a href="{{ url('/register') }}" class="sqaure-button w-inline-block"><img src="images/add.png" loading="lazy" alt="" style="width: 20px"></a>
+        <h2 class="h2 mb-20">Todos los usuarios</h2>
+        <a href="{{ url('/create-user') }}" class="sqaure-button w-inline-block"><img src="images/add.png" loading="lazy" alt="" style="width: 20px"></a>
         <div class="files-scroll">
           <div class="collection-wrapper">
             <div class="files-list">
@@ -248,71 +248,52 @@
                     <table class="table-css">
                       <tr class="bd-top">
                         <th>Id</th>
+                        <th>Tipo</th>
+                        <th>Foto</th>
                         <th>Nombre</th>
-                        <th>Descripcion</th>
-                        <th>Precio</th>
-                        <th>Color</th>
-                        <th>Marca</th>
-                        <th>Existencias</th>
-                        <th>Talla</th>
-                        <th>Imagen 1</th>
-                        <th>Imagen 2</th>
-                        <th>Imagen 3</th>
+                        <th>Contraseña</th>
+                        <th>Correo electrónico</th>
+                        <th>Dirección</th>
                         <th>Estado</th>
                       </tr>
 
                       <tr>
 
                      
-                         @foreach ($products as $product)
+                 @foreach ($users as $user)
                     <th>
-                        <p>{{ $product->id }}</p>
+                        <p>{{ $user->id }}</p>
                     </th>
                     <th>
-                        <p class="w-5">{{ $product->nombre_prod }}</p>
-                    </th>
-                    <th>
-                        <p class="file-name _w-10">{{ $product->descripcion }}</p>
-                    </th>
-                    <th>
-                        <p>{{ $product->precio }}</p>
-                    </th>
-                    <th>
-                        <p>{{ $product->color }}</p>
-                    </th>
-                    <th>
-                        <p>{{ $product->marca }}</p>
-                    </th>
-                    <th>
-                        <p>{{ $product->cantidad }}</p>
-                    </th>
-                    <th>
-                        <p>{{ $product->talla }}</p>
-                    </th>
+                      <p>{{ $user->type }}</p>
+                  </th>
                     <th>
                         <div class="file-flex"><img
-                                loading="lazy" sizes="48px" src="{{ $product->img1_prod }}"
-                                alt="{{ $product->img1_prod }}" class="person-img"></div>
+                                loading="lazy" sizes="48px" src="{{ $user->foto_cliente }}"
+                                alt="{{ $user->foto_cliente}}" class="person-img"></div>
                     </th>
                     <th>
-                        <div class="file-flex"><img
-                                loading="lazy" sizes="48px" src="{{ $product->img2_prod }}"
-                                alt="{{ $product->img2_prod }}" class="person-img"></div>
+                        <p class="w-5">{{ $user->nombre_cliente }}</p>
                     </th>
                     <th>
-                        <div class="file-flex"><img
-                                loading="lazy" sizes="48px" src="{{ $product->img3_prod }}"
-                                alt="{{ $product->img3_prod }}" class="person-img"></div>
+                        <p class="file-name _w-18" style="max-width: 15rem; overflow: auto; height: auto">{{ $user->password }}</p>
                     </th>
                     <th>
-                        <p>{{ $product->estado }}</p>
+                      <p class="w-5">{{ $user->email }}</p>
+                  </th>
+                    <th>
+                        <p class="file-name _w-10">{{ $user->direccion_cliente }}</p>
+                    </th>
+                    
+                    <th>
+                        <p>{{ $user->estado }}</p>
                     </th>
                     <th>
-                        <a href="{{ route('products.edit', $product->id) }}" class="sqaure-button mr-10 w-inline-block"><img src="images/edit.png"
+                        <a href="{{ route('users.edit', $user->id) }}" class="sqaure-button mr-10 w-inline-block"><img src="images/edit.png"
                                 loading="lazy" alt="" style="width: 34px"></a>
                     </th>
                     <th>
-                      <form action="{{ route('products.destroy', $product->id) }}" method ="POST" >
+                      <form action="{{ route('users.destroy', $user->id) }}" method ="POST" >
                         @csrf
                         {{ method_field('DELETE') }}
                         <input type="submit" value="Eliminar" onclick="return EliminarRegistro('Eliminar producto')">
@@ -320,7 +301,7 @@
                         {{-- <a href="#" class="sqaure-button w-inline-block"><img src="images/delete.svg"
                                 loading="lazy" alt=""></a> --}}
                     </th>
-                    </tr>
+                    </tr> 
                     @endforeach
                     </table>
 
