@@ -135,7 +135,7 @@
     <div class="container-form">
       <div class="files-wrap">
         <h2 class="h2 mb-20">Registrar productos</h2>
-        <form method="POST" action="{{ url('/product') }} id="productForm" onsubmit="validateForm(event)" >
+        <form method="POST" action="/product" id="productForm" onsubmit="validateForm(event)" >
           @csrf
             <div class="form-group">
               <label for="nombre_prod">Nombre del producto:</label>
@@ -143,7 +143,7 @@
             </div>
             <div class="form-group">
               <label for="descripcion">Descripción:</label>
-              <textarea id="descripcion" rows="3" required name="descripcion"></textarea>
+              <input id="descripcion" rows="3" required name="descripcion"></input>
             </div>
             <div class="form-group">
               <label for="precio">Precio:</label>

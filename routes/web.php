@@ -23,11 +23,8 @@ Route::get('/register', function () {
 });
 
 
-Route::get('/edit', function () {
-    return view('products.edit');
-});
-
-
+Route::get('/products/{id}/editar', [ProductController::class, 'edit'])->name('products.edit');
+Route::put('/products/{id}', [ProductController::class, 'update'])->name('products.update');
 
 
 Route::resource('/product', ProductController::class);

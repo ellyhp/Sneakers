@@ -303,7 +303,7 @@
                         <p>{{ $product->id }}</p>
                     </th>
                     <th>
-                        <p class="w-5">{{ $product->nombre }}</p>
+                        <p class="w-5">{{ $product->nombre_prod }}</p>
                     </th>
                     <th>
                         <p class="file-name _w-10">{{ $product->descripcion }}</p>
@@ -325,19 +325,16 @@
                     </th>
                     <th>
                         <div class="file-flex"><img
-                                srcset="images/F2gO5sdliUhlEfkqXUd7Q1yileP3Ij9HJOtNLm6z.webp 500w, images/F2gO5sdliUhlEfkqXUd7Q1yileP3Ij9HJOtNLm6z.webp 800w, images/F2gO5sdliUhlEfkqXUd7Q1yileP3Ij9HJOtNLm6z.webp 850w"
                                 loading="lazy" sizes="48px" src="{{ $product->img1_prod }}"
                                 alt="{{ $product->img1_prod }}" class="person-img"></div>
                     </th>
                     <th>
                         <div class="file-flex"><img
-                                srcset="images/F2gO5sdliUhlEfkqXUd7Q1yileP3Ij9HJOtNLm6z.webp 500w, images/F2gO5sdliUhlEfkqXUd7Q1yileP3Ij9HJOtNLm6z.webp 800w, images/F2gO5sdliUhlEfkqXUd7Q1yileP3Ij9HJOtNLm6z.webp 850w"
                                 loading="lazy" sizes="48px" src="{{ $product->img2_prod }}"
                                 alt="{{ $product->img2_prod }}" class="person-img"></div>
                     </th>
                     <th>
                         <div class="file-flex"><img
-                                srcset="images/F2gO5sdliUhlEfkqXUd7Q1yileP3Ij9HJOtNLm6z.webp 500w, images/F2gO5sdliUhlEfkqXUd7Q1yileP3Ij9HJOtNLm6z.webp 800w, images/F2gO5sdliUhlEfkqXUd7Q1yileP3Ij9HJOtNLm6z.webp 850w"
                                 loading="lazy" sizes="48px" src="{{ $product->img3_prod }}"
                                 alt="{{ $product->img3_prod }}" class="person-img"></div>
                     </th>
@@ -345,7 +342,7 @@
                         <p>{{ $product->estado }}</p>
                     </th>
                     <th>
-                        <a href="#" class="sqaure-button mr-10 w-inline-block"><img src="images/edit.png"
+                        <a href="{{ route('products.edit', $product->id) }}" class="sqaure-button mr-10 w-inline-block"><img src="images/edit.png"
                                 loading="lazy" alt="" style="width: 34px"></a>
                     </th>
                     <th>

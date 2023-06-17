@@ -47,14 +47,16 @@ class ProductController extends Controller
         
         // $ruta='';
 
-        // if($image=$request->file('img1')){
+        // if($image=$request->file('img1_prod')){
         //     $image->move(public_path().'/images/products',$image->getClientOriginalName());        
         // }
 
  
         $product->save();
 
-        echo "Registro realizado";
+        return view('products.index', [
+            'products' => (Product::all())
+        ]);
  
     }
 
@@ -71,7 +73,8 @@ class ProductController extends Controller
      */
     public function edit($id)
     {
-        //
+        $product = Product::find($id);
+        return view('products.edit', ['product' => $product]);
     }
 
     /**
@@ -79,7 +82,10 @@ class ProductController extends Controller
      */
     public function update(Request $request, $id)
     {
+        
+        // $product = Product::find($id);
         $product = Product::find($id);
+
  
         $product->nombre_prod = $request->nombre_prod;
         $product->descripcion = $request->descripcion;
@@ -94,6 +100,9 @@ class ProductController extends Controller
         $product->cantidad = $request->cantidad;
 
         $product->save();
+
+
+        return redirect()->action([ProductController::class, 'index']);
 
     }
 
