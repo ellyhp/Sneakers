@@ -39,8 +39,6 @@ Route::delete('/products/{id}', [ProductController::class, 'destroy'])->name('pr
 
 //users
 
-
-
 Route::get('/users', function () {
      return view('users.index');
 });
@@ -50,3 +48,10 @@ Route::get('/create-user', function () {
 });
 
 Route::resource('/users', UserController::class);
+
+
+// orders
+
+Route::get('/orders', function () {
+     return view('orders.index');
+});

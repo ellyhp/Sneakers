@@ -139,14 +139,6 @@
               <input type="file" id="img3_prod" required name="img3_prod">
             </div>
             <div class="form-group">
-              <label for="estado">Estado:</label>
-              <select id="estado" required name="estado">
-                <option value="">Seleccione un estado</option>
-                <option value="Activo">Activo</option>
-                <option value="Inactivo">Inactivo</option>
-              </select>
-            </div>
-            <div class="form-group">
               <label for="talla">Talla:</label>
               <input type="number" id="talla" required name="talla">
             </div>
